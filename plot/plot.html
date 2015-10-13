@@ -1,0 +1,18 @@
+<html ng-app="plotApp">
+<head>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/adapters/standalone-framework.js" ></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.src.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript" src="js/highcharts-ng.js" ></script>
+    <script type="text/javascript" src="js/plot.js"></script>
+</head>
+<body ng-controller="plotController">
+	<input ng-model="highchartsNG.title.text">
+    <button ng-click="addSeries()">Add Series</button>
+    <button ng-click="addPoints()">Add Points to Random Series</button>
+    <button ng-click="removeRandomSeries()">Remove Random Series</button>
+    <button ng-click="swapChartType()">Line/Bar</button>
+    <highchart id="chart1" config="highchartsNG" style="width:700px;height:400px"></highchart>
+</body>
+</html>
