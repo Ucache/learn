@@ -6,13 +6,39 @@
     <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
     <script type="text/javascript" src="js/highcharts-ng.js" ></script>
     <script type="text/javascript" src="js/plot.js"></script>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body ng-controller="plotController">
-	<input ng-model="highchartsNG.title.text">
-    <button ng-click="addSeries()">Add Series</button>
-    <button ng-click="addPoints()">Add Points to Random Series</button>
-    <button ng-click="removeRandomSeries()">Remove Random Series</button>
-    <button ng-click="swapChartType()">Line/Bar</button>
-    <highchart id="chart1" config="highchartsNG" style="width:700px;height:400px"></highchart>
+	<form class="form-horizontal">
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+	    <div class="col-sm-10">
+	      <input class="form-control" id="inputEmail3"  ng-model="highchartsNG.title.text">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-2 control-label">Data Points</label>
+	    <div class="col-sm-10" ng-class="highchartsNG.errors">
+	      <textarea class="form-control" rows="8" ng-model="chartData"></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-default" ng-click="verifyData()">Plot</button>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<div class="col-sm-offset-2 col-sm-10">
+	  	  <highchart id="chart1" config="highchartsNG" style="width:700px;height:400px"></highchart>
+	  	 </div>
+	  </div>
+	</form>
 </body>
 </html>
