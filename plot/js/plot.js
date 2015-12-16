@@ -19,7 +19,7 @@ plotapp.controller('plotController', function($scope) {
 
     $scope.processUploadData = function() {
         var f = document.getElementById('inputDataFile').files[0];
-        if(f == undefined){
+        if (f == undefined) {
             return
         }
         r = new FileReader();
@@ -32,7 +32,7 @@ plotapp.controller('plotController', function($scope) {
 
     $scope.plot = function() {
         this.processUploadData()
-        //alert(this.chartData)
+            //alert(this.chartData)
         this.verifyData()
         this.calRegressLine()
 
@@ -154,16 +154,16 @@ plotapp.controller('plotController', function($scope) {
         }
         var X = []
         var y = []
-        var max=-1
-        var min=0xffffffff
+        var max = -1
+        var min = 0xffffffff
         var data = $scope.highchartsNG.series[0].data
         for (var i = 0; i < data.length; i++) {
             X[i] = [1, data[i][0]]
             y[i] = [data[i][1]]
-            if (data[i][0] < min){
+            if (data[i][0] < min) {
                 min = data[i][0]
             }
-            if (data[i][0] > max){
+            if (data[i][0] > max) {
                 max = data[i][0]
             }
         }
