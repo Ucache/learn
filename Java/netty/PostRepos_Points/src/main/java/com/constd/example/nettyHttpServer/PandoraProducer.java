@@ -29,9 +29,8 @@ public class PandoraProducer {
         this.producer = new KafkaProducer<String,String>(props);
     }
 
-    public  void Send(String topic, String msg){
+    public void Send(String topic, String msg){
         System.out.println("send msg:" + msg);
-        this.producer.send(new ProducerRecord<String, String>("pandora","msg","msg"));
-        this.producer.close();
+        this.producer.send(new ProducerRecord<String, String>(topic,msg,msg));
     }
 }
