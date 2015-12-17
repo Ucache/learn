@@ -38,7 +38,6 @@ public class HelloWorldHttpServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg){
         if ( msg instanceof HttpRequest){
             HttpRequest req = this.request = (HttpRequest) msg;
-
             if (HttpHeaders.is100ContinueExpected(req)){
                 ctx.write(new DefaultFullHttpResponse(HTTP_1_1, CONTINUE));
             }
@@ -65,10 +64,8 @@ public class HelloWorldHttpServerHandler extends ChannelInboundHandlerAdapter {
         boolean keepAlive = HttpHeaders.isKeepAlive(request);
         // Build the response object.
         FullHttpResponse response = new DefaultFullHttpResponse(
-                HTTP_1_1,  OK , null);
-
+                HTTP_1_1,  OK , Unpooled.copiedBuffer("", CharsetUtil.UTF_8));
         response.headers().set(CONTENT_TYPE, "text/plain; charset=UTF-8");
-
         if (keepAlive) {
             // Add 'Content-Length' header only for a keep-alive connection.
             response.headers().set(CONTENT_LENGTH, response.content().readableBytes());
@@ -76,10 +73,8 @@ public class HelloWorldHttpServerHandler extends ChannelInboundHandlerAdapter {
             // - http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01.html#Connection
             response.headers().set(CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
         }
-
         // Write the response.
         ctx.write(response);
-
         return keepAlive;
     }
 

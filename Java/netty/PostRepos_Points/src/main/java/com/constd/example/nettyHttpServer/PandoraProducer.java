@@ -31,6 +31,12 @@ public class PandoraProducer {
 
     public void Send(String topic, String msg){
         System.out.println("send msg:" + msg);
-        this.producer.send(new ProducerRecord<String, String>(topic,msg,msg));
+        try {
+            this.producer.send(new ProducerRecord<String, String>(topic,msg,msg));
+        }finally {
+            this.producer.close();
+        }
+        //producer.close();
     }
+
 }

@@ -17,7 +17,6 @@ public final class HelloWorldHttpServer {
 
     static final int PORT = 8080;
     public static void main(String[]args) throws Exception{
-        System.out.println("hello world");
 
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
