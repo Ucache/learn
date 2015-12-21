@@ -1,0 +1,9 @@
+[0m[[0minfo[0m] [0mPackaging /home/qiniu/learn/scala/target/scala-2.10/test_2.10-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	test.class[0m
+[0m[[0mdebug[0m] [0m	  /home/qiniu/learn/scala/target/scala-2.10/classes/test.class[0m
+[0m[[0mdebug[0m] [0m	test$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/qiniu/learn/scala/target/scala-2.10/classes/test$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	test$.class[0m
+[0m[[0mdebug[0m] [0m	  /home/qiniu/learn/scala/target/scala-2.10/classes/test$.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
